@@ -1,0 +1,354 @@
+@-webkit-keyframes wink {
+  45% {
+    height: 6px;
+  }
+  50% {
+    height: 0;
+  }
+  55% {
+    height: 6px;
+  }
+}
+@keyframes wink {
+  45% {
+    height: 6px;
+  }
+  50% {
+    height: 0;
+  }
+  55% {
+    height: 6px;
+  }
+}
+@-webkit-keyframes winkTwice {
+  80% {
+    height: 6px;
+  }
+  85% {
+    height: 0px;
+  }
+  90% {
+    height: 6px;
+  }
+  95% {
+    height: 0px;
+  }
+  100% {
+    height: 6px;
+  }
+}
+@keyframes winkTwice {
+  80% {
+    height: 6px;
+  }
+  85% {
+    height: 0px;
+  }
+  90% {
+    height: 6px;
+  }
+  95% {
+    height: 0px;
+  }
+  100% {
+    height: 6px;
+  }
+}
+@-webkit-keyframes open {
+  50% {
+    height: 4px;
+  }
+  70%, 90% {
+    height: 10px;
+  }
+  100% {
+    height: 4px;
+  }
+}
+@keyframes open {
+  50% {
+    height: 4px;
+  }
+  70%, 90% {
+    height: 10px;
+  }
+  100% {
+    height: 4px;
+  }
+}
+@-webkit-keyframes swing {
+  0% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(2px);
+  }
+}
+@keyframes swing {
+  0% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(2px);
+  }
+}
+@-webkit-keyframes swingDeg {
+  0%, 10% {
+    transform: rotate(-8deg) translateY(2px);
+  }
+  50% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  90%, 100% {
+    transform: rotate(8deg) translateY(2px);
+  }
+}
+@keyframes swingDeg {
+  0%, 10% {
+    transform: rotate(-8deg) translateY(2px);
+  }
+  50% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  90%, 100% {
+    transform: rotate(8deg) translateY(2px);
+  }
+}
+@-webkit-keyframes swingUp {
+  0% {
+    transform: rotate(10deg) translateY(-2px);
+  }
+  100% {
+    transform: rotate(10deg) translateY(2px);
+  }
+}
+@keyframes swingUp {
+  0% {
+    transform: rotate(10deg) translateY(-2px);
+  }
+  100% {
+    transform: rotate(10deg) translateY(2px);
+  }
+}
+@-webkit-keyframes swingBottom {
+  20% {
+    transform: translateY(0);
+  }
+  80%, 100% {
+    transform: translateY(5px);
+  }
+}
+@keyframes swingBottom {
+  20% {
+    transform: translateY(0);
+  }
+  80%, 100% {
+    transform: translateY(5px);
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  color: inherit;
+  list-style: none;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: block;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+#app .box {
+  width: 100%;
+  text-align: center;
+}
+#app .face {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  margin: 5px;
+  display: inline-block;
+  box-shadow: inset 2px -1px 8px 0 rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+#app .face .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#app .face.red {
+  background-color: #e94914;
+}
+#app .face.red .container {
+  -webkit-animation: swing 0.5s linear infinite alternate;
+          animation: swing 0.5s linear infinite alternate;
+}
+#app .face.red .mouth {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#app .face.red .mouth::after {
+  content: "";
+  display: block;
+  background-color: #e94914;
+  width: 15px;
+  height: 8px;
+  position: absolute;
+  top: 4px;
+  left: -4px;
+}
+#app .face.red .eyes {
+  top: 35px;
+  -webkit-animation: wink linear 2s infinite;
+          animation: wink linear 2s infinite;
+}
+#app .face.yellow {
+  background-color: #f5a514;
+}
+#app .face.yellow .container {
+  -webkit-animation: swingBottom 1s linear infinite alternate;
+          animation: swingBottom 1s linear infinite alternate;
+}
+#app .face.yellow .mouth {
+  width: 10px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-animation: open linear 2s infinite;
+          animation: open linear 2s infinite;
+}
+#app .face.yellow .eyes {
+  -webkit-animation: winkTwice linear 2s infinite;
+          animation: winkTwice linear 2s infinite;
+}
+#app .face.blue {
+  background-color: #1080e1;
+}
+#app .face.blue .container {
+  transform-origin: bottom center;
+  -webkit-animation: swingDeg 1s linear infinite alternate;
+          animation: swingDeg 1s linear infinite alternate;
+}
+#app .face.blue .mouth {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  position: absolute;
+  top: 33px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#app .face.blue .mouth::after {
+  content: "";
+  display: block;
+  background-color: #1080e1;
+  width: 15px;
+  height: 8px;
+  position: absolute;
+  top: -5px;
+  left: -4px;
+}
+#app .face.blue .eyes {
+  -webkit-animation: wink linear 2s infinite;
+          animation: wink linear 2s infinite;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+#app .face.green {
+  background-color: #1b7934;
+}
+#app .face.green .container {
+  -webkit-animation: swingUp 0.5s linear infinite alternate;
+          animation: swingUp 0.5s linear infinite alternate;
+}
+#app .face.green .cover {
+  background-color: #1b7934;
+  display: block;
+  width: 15px;
+  height: 8px;
+  position: absolute;
+  top: 29px;
+  left: 25px;
+  z-index: 1;
+}
+#app .face.green .mouth {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #000;
+  position: absolute;
+  top: 33px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+#app .face.green .mouth .tongue {
+  background-color: red;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  left: 2px;
+}
+#app .face .eyes {
+  position: absolute;
+  width: 100%;
+  top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 2;
+  overflow: hidden;
+}
+#app .face .eyes .eye {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #000;
+  display: inline-block;
+}
