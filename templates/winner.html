@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>InstagramGiveaway - Winners List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styled.css')}}">
+
+</head>
+<body>
+  <form action = "/downloadResult" method = "post">
+  <input type = "hidden" value="{{finalResult}}" name="df"/>  
+  <input type = "submit" value = "Download Excel" class="action-button shadow animate blue" />
+  <div>
+  <ul>
+    {% for key, value in winnerResults.items() %}
+    <li>
+      <div class="details">
+        <h2>{{key}}</h2>
+        <p></p>
+        <div class="product">
+          <img src={{value}}/>
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  </div>
+ </form>
+
+</body>
+</html>
