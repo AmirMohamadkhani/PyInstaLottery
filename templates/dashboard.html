@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+{% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="/try_giveaway">
+  <h1>Dashboard <small> Welcome {{session.username}}</small></h1>
+  
+  <hr>
+    <div class="form-group">
+      <label>Instagram post URL</label>
+      <input type="text" name="instaurl" required="required" class="form-control" value={{request.form.instaurl}} >
+    </div>
+
+    <div class="form-group">
+      <label for="Number of winners">Number of winners</label>
+      <input type="text" required="required" name="winnerCount" id="txt_winnerCount" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"/><br><br>
+
+
+      <input type="checkbox" id="comments_included" name="comments" value="comments" onClick="ckChange()">
+      <label for="comments"> Check for comments</label><br>
+      <label for="min_comments">Minimum comments</label>
+      <input type="text" name="minComments" id="txt_minComments" disabled onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"/><br><br>
+
+      <input type="checkbox" id="mentions_included" name="mentions" value="mentions_included">
+      <label for="mentions"> Should mention someone</label><br>
+      <input type="checkbox" id="likeit" name="likeit" value="LikedIt">
+      <label for="likeit">Should liked the post</label><br>
+
+      <input type="checkbox" id="follower" name="follower" value="follower" >
+      <label for="follower">Should be follower</label><br>
+      
+    </div>
+  
+    <p><input class="btn btn-primary" type="submit" value="Try GiveAway">
+  </form>
+  <script>
+      function ckChange(){
+          var commentChecked = document.getElementById("comments_included");
+          var minComment = document.getElementById("txt_minComments");
+
+          if(commentChecked.checked){
+            
+            minComment.disabled = false
+          }
+          else{
+            minComment.disabled = true
+          }
+      }
+
+    </script>
+  
+{% endblock %}
