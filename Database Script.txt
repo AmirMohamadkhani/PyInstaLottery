@@ -1,0 +1,8 @@
+CREATE DATABASE `instagiveaway` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_persian_ci */;
+
+CREATE TABLE `users` (
+  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
+  `email` varchar(40) CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
+  `username` varchar(17) CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
+  `password` varchar(110) CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
